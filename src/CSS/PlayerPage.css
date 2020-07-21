@@ -106,6 +106,16 @@ iframe {
     .toolkit_container {
         display:none;
     }
+    .player_page_content {
+        width: calc(100% - 50px);
+        margin-left: 50px;
+    }
+    .iframe_div {
+        width: calc(100% - 50px)
+    }
+    .iframe_div.hidden {
+        left:calc(-100% + 50px);
+    }
 }
 
 .history p {

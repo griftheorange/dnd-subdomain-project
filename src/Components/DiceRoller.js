@@ -21,6 +21,7 @@ function DiceRoller(props) {
         }).map((die) => {
             let values = die.split("*")
             if(values.length > 1){
+                let title = values[0]
                 let repeat = parseInt(values[1])
                 let output = []
                 values = values[0].split("d")
@@ -32,7 +33,7 @@ function DiceRoller(props) {
                     }
                     let sum = rolls.length > 0 ? rolls.reduce((total, num) => {return total+num}) : 0
                     output.push({
-                        'name':die,
+                        'name':title,
                         'rolls':rolls,
                         'sum':sum,
                         'avg':sum/rolls.length
