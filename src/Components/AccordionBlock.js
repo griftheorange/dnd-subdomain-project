@@ -61,7 +61,34 @@ function AccordionBlock(props) {
                 <h2>Encylop&#230;dia</h2>
                 <div className="divider"></div>
                 <div className="encyclopedia_div">
-
+                    <div className="npc_block">
+                        <h3>Friends and Foes</h3>
+                        <ul>
+                            <li className="very-friendly">Frank Edinburge</li>
+                            <li className="friendly">Drin'kee</li>
+                            <li className="neutral">Dave</li>
+                            <li className="neutral">Dracinian "..." Withring</li>
+                            <li className="neutral">Esmerelda "..." Withring</li>
+                        </ul>
+                    </div>
+                    <div className="location_block">
+                        <h3>Geographica</h3>
+                        <ul>
+                            <li className="very-friendly">Goldenbridge</li>
+                            <li className="neutral">Shattered-Moon Forest</li>
+                            <li className="unfriendly">Stonewood</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="bestiary" className={props.selectedCell == null ? "cell" : (props.selectedCell == "bestiary" ? "cell selected" : "cell unselected")}
+                 onClick={() => {
+                     toggleSelectedCell("bestiary")
+                 }}>
+                <h2>Bestiary</h2>
+                <div className="divider"></div>
+                <div className="bestiary_div">
+                    <p>Its a Dangerous World...</p>
                 </div>
             </div>
         </div>

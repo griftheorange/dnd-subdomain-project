@@ -22,6 +22,30 @@
     100% {opacity: 1}
 }
 
+:root {
+    --very-friendly: green;
+    --friendly: #71c307;
+    --neutral: #bcc904;
+    --unfriendly: #c98d04;
+    --hostile: #c92004;
+}
+
+li.very-friendly {
+    color: var(--very-friendly)
+}
+li.friendly {
+    color:var(--friendly)
+}
+li.neutral {
+    color:var(--neutral)
+}
+li.unfriendly {
+    color:var(--unfriendly)
+}
+li.hostile {
+    color:var(--hostile)
+}
+
 .first_span {
     animation: fadeInFirst ease 3s;
 }
@@ -98,7 +122,7 @@ img.hearth {
 }
 
 .accordion div.cell {
-    height: calc(25% - 22.5px);
+    height: calc(20% - 22.5px);
     padding: 10px
 }
 
@@ -149,16 +173,12 @@ div.cell.unselected {
 
 div.cell div a,p {
     font-size:1.4em;
+    color: #dfd6cd
 }
 
 div.cell div p {
     margin-top: 15px;
     margin-bottom: 15px;
-}
-
-div.cell div a {
-    color:#dfd6cd;
-    text-decoration: none;
 }
 
 div.divider {
@@ -167,6 +187,41 @@ div.divider {
     border-bottom: 1px solid #ffffff1c;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.encyclopedia_div {
+    display: flex;
+}
+
+.encyclopedia_div div {
+    width: 45%;
+    height: 95%;
+    margin-left:5%
+}
+
+.encyclopedia_div div ul {
+    padding-left: 15px;
+}
+
+.encyclopedia_div div ul li {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.encyclopedia_div div h3 {
+    font-size: 1.7em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 1380px){
+    .encyclopedia_div {
+        flex-direction: column;
+    }
+    .encyclopedia_div div {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 1050px){
