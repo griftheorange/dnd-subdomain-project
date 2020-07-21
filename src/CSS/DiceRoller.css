@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Endor';
+    src: url('../Resources/Fonts/ENDOR___.ttf')
+}
+
+@font-face {
+    font-family: 'Chancery';
+    src: url('../Resources/Fonts/BLKCHCRY.TTF')
+}
+
+.dice_roller {
+    width:100%;
+    height:100%;
+}
+
+.dice_roller h3 {
+    margin:0;
+    margin-top: 15px;
+    margin-bottom: 5px
+}
+
+.dice_roller .roller_field {
+    margin-right:0;
+    width: calc(100% - 10px);
+    display: flex;
+}
+
+.dice_roller input {
+    flex-grow: 1;
+}
+
+.dice_roller input, button {
+    background-color: #141414;
+    color:#c8c8c8;
+    font-family: Chancery;
+    font-size: 1.2em;
+}
+
+.dice_roller input:focus, button:focus {
+    outline:none;
+}

@@ -63,4 +63,37 @@ iframe {
     width: 100%;
     height: 100%;
     padding-left: 50px;
+    font-family: Chancery;
+    color:#c8c8c8;
+}
+
+.toolkit_container {
+    width:calc(30% - 85px);
+    padding:15px;
+    height:calc(100% - 30px);
+    border-right: 1px solid #ffffff40;
+    position:absolute;
+    left:calc(0% + 50px);
+    transition: left 1.5s;
+    animation: fadeIn ease 1.5s;
+    display:flex;
+    flex-direction: column;
+}
+
+.toolkit_container.moved {
+    left:calc(70% + 50px);
+}
+
+.toolkit_container h2 {
+    margin:0;
+}
+
+.player_die_container {
+    flex-grow: 1;
+}
+
+@media only screen and (max-width:800px){
+    .toolkit_container {
+        display:none;
+    }
 }
