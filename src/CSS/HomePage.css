@@ -125,7 +125,7 @@ div.cell {
 
 div.cell div {
     opacity:0.3;
-    transition: opacity 1s;
+    transition: opacity 1s, height 1s;
     pointer-events: none;
 }
 
@@ -139,6 +139,10 @@ div.cell.selected div {
     pointer-events: auto;
 }
 
+div.cell.selected div.schedule_div {
+    height:90%;
+}
+
 div.cell.unselected {
     height:0%
 }
@@ -148,8 +152,8 @@ div.cell div a,p {
 }
 
 div.cell div p {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 div.cell div a {

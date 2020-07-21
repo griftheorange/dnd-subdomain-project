@@ -3,6 +3,12 @@ import {connect} from 'react-redux'
 
 function AccordionBlock(props) {
 
+    function handleLink(url, event){
+        event.stopPropagation()
+        let win = window.open(url, "_blank")
+        win.focus()
+    }
+
     function toggleSelectedCell(clickedCell){
         if (props.selectedCell == clickedCell) {
             props.setSelectedCell(null)
@@ -31,7 +37,7 @@ function AccordionBlock(props) {
                 <h2>Schedule</h2>
                 <div className="divider"></div>
                 <div className="schedule_div">
-
+                    <iframe src="https://calendar.google.com/calendar/embed?src=3t52ck1rr0aijb96snatgijsfo%40group.calendar.google.com&ctz=America%2FNew_York" style={{border: 0, width: "100%", height: "100%"}} frameborder="0" scrolling="no"></iframe>
                 </div>
             </div>
             <div id="resources" className={props.selectedCell == null ? "cell" : (props.selectedCell == "resources" ? "cell selected" : "cell unselected")}
@@ -41,7 +47,11 @@ function AccordionBlock(props) {
                 <h2>Resources</h2>
                 <div className="divider"></div>
                 <div className="resources_div">
-                    <a target="_blank" href="https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=1">Players Handbook</a>
+                    <p><span onClick={(e) => {handleLink("https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=1", e)}}>Heroes' Lexicon</span></p>
+                    <p><span onClick={(e) => {handleLink("https://www.wizards.com/dnd/dice/dice.htm", e)}}>Cast the Die</span></p>
+                    <p><span onClick={(e) => {handleLink("https://i.pinimg.com/originals/ae/da/e0/aedae0f7809fb92bcbe9829ff7ddeebc.png", e)}}>Norman's Guide to Combat</span></p>
+                    <p><span onClick={(e) => {handleLink("https://dnd5e.info/equipment/expenses/", e)}}>Frugal Living for the Cost-Conscious Adventurer</span></p>
+                    <p><span onClick={(e) => {handleLink("https://dungeonmastertools.github.io/treasure.html", e)}}>Scrolls of Copius Datum</span></p>
                 </div>
             </div>
             <div id="encyclopedia" className={props.selectedCell == null ? "cell" : (props.selectedCell == "encyclopedia" ? "cell selected" : "cell unselected")}
