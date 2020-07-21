@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Endor';
+    src: url('../Resources/Fonts/ENDOR___.ttf')
+}
+
+@font-face {
+    font-family: 'Chancery';
+    src: url('../Resources/Fonts/BLKCHCRY.TTF')
+}
+
+@keyframes fadeInFirst {
+    0% {opacity: 0}
+    20% {opacity: 0}
+    80% {opacity: 1}
+    100%{opacity: 1}
+}
+
+@keyframes fadeInSecond { 
+    0% {opacity: 0}
+    20% {opacity: 0}
+    40% {opacity: 0}
+    100% {opacity: 1}
+}
+
+.first_span {
+    animation: fadeInFirst ease 3s;
+}
+
+.second_span {
+    animation: fadeInSecond ease 3s;
+}
+
+.home_page_div {
+    padding-left:20px;
+    padding-right:20px;
+}
+
+h1 {
+    font-family: Chancery;
+    font-weight: 100;
+    color: #c8c8c8;
+    font-size:90px;
+    position: absolute;
+    text-shadow: 5px 5px #ffffff12;
+    margin: 0;
+    margin-top: 15px;
+    animation: type 4s steps(60, end); 
+    white-space: nowrap;
+    overflow: hidden;
+}

@@ -1,0 +1,62 @@
+@keyframes fadeIn {
+    0% {opacity:0%}
+    100% {opacity:100%}
+}
+
+
+@font-face {
+    font-family: 'Endor';
+    src: url('../Resources/Fonts/ENDOR___.ttf')
+}
+
+.sheet_button span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.sheet_button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+.sheet_button {
+    font-family: fantasy;
+    font-size:1.5em;
+    width:50px;
+    position: relative;
+    left:50px;
+    background-color: #171717;
+    color: #c8c8c8;
+    border: none;
+    border-top:1px solid grey;
+    border-bottom:1px solid grey;
+}
+
+.iframe_div {
+    width: 70%;
+    height: 100%;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+    position: absolute;
+    display:flex;
+    left:0%;
+    transition: left 1.5s;
+    animation: fadeIn ease 1s;
+    background-color: white;
+}
+
+.iframe_div.hidden {
+    left:-70%;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border:none;
+}
+
+.player_page_content {
+    width: 100%;
+    height: 100%;
+    padding-left: 50px;
+}
