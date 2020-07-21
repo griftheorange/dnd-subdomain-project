@@ -33,12 +33,35 @@
 .home_page_div {
     padding-left:20px;
     padding-right:20px;
+    width: calc(100% - 20px);
+    height: 100%;
+    display:flex
+}
+
+.welcome {
+    height: 120px;
+    width:100%;
+}
+
+.details {
+    width:100%;
+    height: calc(100% - 120px);
+    animation: fadeInFirst ease 15s;
+    overflow: hidden;
+    display:flex;
+}
+
+.home_left_block {
+    width: 860px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
     font-family: Chancery;
     font-weight: 100;
-    color: #c8c8c8;
+    color: #dfd6cd;
     font-size:90px;
     position: absolute;
     text-shadow: 5px 5px #ffffff12;
@@ -47,4 +70,19 @@ h1 {
     animation: type 4s steps(60, end); 
     white-space: nowrap;
     overflow: hidden;
+}
+
+div.image_center {
+    margin: auto
+}
+
+img.hearth {
+    width:auto;
+    height:100%;
+}
+
+.home_right_block {
+    flex-grow:1;
+    height:100%;
+    border: 1px solid white;
 }
