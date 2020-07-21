@@ -53,6 +53,7 @@
 
 .home_left_block {
     width: 860px;
+    min-width: 860px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -84,5 +85,88 @@ img.hearth {
 .home_right_block {
     flex-grow:1;
     height:100%;
-    border: 1px solid white;
+    border-left: 1px solid #ffffff2e;
+    padding:5px;
+    margin-left: 15px;
+    animation: fadeInSecond ease 4s;
+    overflow-y: hidden;
+}
+
+.accordion {
+    height: 100%;
+    width: 100%;
+}
+
+.accordion div.cell {
+    height: calc(25% - 22.5px);
+    padding: 10px
+}
+
+.accordion div.cell:hover {
+    background-color: #050505;
+}
+
+div.cell h2 {
+    font-family: Chancery;
+    font-weight: 100;
+    color: #dfd6cd;
+    font-size:40px;
+    margin:0;
+}
+
+div.cell {
+    font-family: Chancery;
+    font-weight: 100;
+    color: #dfd6cd;
+    overflow-y: hidden;
+    transition: height 1s;
+    border-bottom:1px solid #dfd6cd;
+}
+
+div.cell div {
+    opacity:0.3;
+    transition: opacity 1s;
+    pointer-events: none;
+}
+
+div.cell.selected {
+    height:100%;
+    overflow-y: scroll;
+}
+
+div.cell.selected div {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+div.cell.unselected {
+    height:0%
+}
+
+div.cell div a,p {
+    font-size:1.4em;
+}
+
+div.cell div p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+div.cell div a {
+    color:#dfd6cd;
+    text-decoration: none;
+}
+
+div.divider {
+    height: 0%;
+    width: 100%;
+    border-bottom: 1px solid #ffffff1c;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 1050px){
+    .home_right_block {
+        display:none;
+    }
 }

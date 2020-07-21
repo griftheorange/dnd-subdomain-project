@@ -1,7 +1,7 @@
 import React from 'react';
 import '../CSS/HomePage.css'
 import hearth from '../Resources/Pictures/fire-burning-animated-gif-image.gif'
-import hearth_sound from '../Resources/Audio/Fireplace-SoundBible.com-127901833.mp3'
+import AccordionBlock from './AccordionBlock.js'
 
 function HomePage(props) {
     return (
@@ -17,7 +17,7 @@ function HomePage(props) {
                 </div>
             </div>
             <div className="home_right_block">
-
+                <AccordionBlock/>
             </div>
         </div>
     );

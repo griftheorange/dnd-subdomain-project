@@ -3,10 +3,14 @@
     100% {opacity:100%}
 }
 
-
 @font-face {
     font-family: 'Endor';
     src: url('../Resources/Fonts/ENDOR___.ttf')
+}
+
+@font-face {
+    font-family: 'Chancery';
+    src: url('../Resources/Fonts/BLKCHCRY.TTF')
 }
 
 .sheet_button span {
