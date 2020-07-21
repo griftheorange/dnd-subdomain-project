@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import '../CSS/PlayerPage.css'
 import playerData from '../Resources/Dictionaries/PlayerData.js'
 import DiceRoller from '../Components/DiceRoller.js'
+import Heritage from '../Components/Heritage.js'
 
 function PlayerPage(props) {
 
@@ -14,7 +15,6 @@ function PlayerPage(props) {
         }
     }
 
-    console.log(props)
     return (
     <>
     <div className={props.charSheetHidden ? "iframe_div hidden" : "iframe_div"}>
@@ -25,6 +25,10 @@ function PlayerPage(props) {
         <div className={props.charSheetHidden ? "toolkit_container" : "toolkit_container moved"}>
             <h2>Tools of the Trade</h2>
             <div className="divider"></div>
+            <div className="history">
+                <Heritage classURL={playerData[props.match.params.player_name]['class_url']} raceURL={playerData[props.match.params.player_name]['race_url']}/>
+            </div>
+            <div className="divider"/>
             <div className="player_die_container">
                 <DiceRoller/>
             </div>

@@ -78,6 +78,7 @@ iframe {
     animation: fadeIn ease 1.5s;
     display:flex;
     flex-direction: column;
+    overflow-y:scroll;
 }
 
 .toolkit_container.moved {
@@ -96,4 +97,9 @@ iframe {
     .toolkit_container {
         display:none;
     }
+}
+
+.history p {
+    margin:0;
+    margin-top:10px
 }

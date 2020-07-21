@@ -39,3 +39,15 @@
 .dice_roller input:focus, button:focus {
     outline:none;
 }
+
+.dice_roller ul div {
+    margin-top: 20px;
+}
+
+li {
+    font-size: 1.2em;
+}
+
+li ul li {
+    word-wrap: break-word;
+}
