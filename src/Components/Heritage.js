@@ -10,8 +10,8 @@ function Heritage(props) {
 
     return (
         <>
-        <p onClick={(e) => {handleLink(props.raceURL, e)}}>Heritage</p>
-        <p onClick={(e) => {handleLink(props.classURL, e)}}>Profession</p>
+        <p onClick={(e) => {handleLink(props.raceURL, e)}}>-Heritage</p>
+        <p onClick={(e) => {handleLink(props.classURL, e)}}>-Profession</p>
         </>
     );
 }

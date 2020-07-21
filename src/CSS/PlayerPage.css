@@ -47,6 +47,7 @@
     transition: left 1.5s;
     animation: fadeIn ease 1s;
     background-color: white;
+    z-index: 1;
 }
 
 .iframe_div.hidden {
@@ -60,11 +61,18 @@ iframe {
 }
 
 .player_page_content {
-    width: 100%;
+    width: calc(70% - 25px);
     height: 100%;
-    padding-left: 50px;
+    margin-left: calc(30%);
     font-family: Chancery;
     color:#c8c8c8;
+    padding: 15px;
+    animation: fadeIn  ease 2.5s;
+}
+
+.player_page_content h1 {
+    font-size: 4em;
+    margin:0;
 }
 
 .toolkit_container {
@@ -78,6 +86,7 @@ iframe {
     animation: fadeIn ease 1.5s;
     display:flex;
     flex-direction: column;
+    background-color: #000000;
     overflow-y:scroll;
 }
 

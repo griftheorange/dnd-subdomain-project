@@ -7,6 +7,8 @@ import Heritage from '../Components/Heritage.js'
 
 function PlayerPage(props) {
 
+    let player_name = props.match.params.player_name
+
     function toggleCharSheetHidden(){
         if(props.charSheetHidden){
             props.setCharSheetHidden(false)
@@ -18,15 +20,16 @@ function PlayerPage(props) {
     return (
     <>
     <div className={props.charSheetHidden ? "iframe_div hidden" : "iframe_div"}>
-        <iframe title={props.player_name + "_sheet"}src={playerData[props.match.params.player_name]["url"]}></iframe>
+        <iframe title={props.player_name + "_sheet"}src={playerData[player_name]["url"]}></iframe>
         <button className="sheet_button" onClick={toggleCharSheetHidden}><span>Arcana</span></button>
     </div>
     <div className="player_page_content">
+        <h1>{playerData[player_name]['char_name']}</h1>
         <div className={props.charSheetHidden ? "toolkit_container" : "toolkit_container moved"}>
             <h2>Tools of the Trade</h2>
             <div className="divider"></div>
             <div className="history">
-                <Heritage classURL={playerData[props.match.params.player_name]['class_url']} raceURL={playerData[props.match.params.player_name]['race_url']}/>
+                <Heritage classURL={playerData[player_name]['class_url']} raceURL={playerData[player_name]['race_url']}/>
             </div>
             <div className="divider"/>
             <div className="player_die_container">
