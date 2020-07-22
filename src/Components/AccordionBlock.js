@@ -18,6 +18,7 @@ function AccordionBlock(props) {
         if(url){
             props.setLogURL(url)
             props.setHomeDisplay("log")
+            props.setLogTitle(event.target.innerText)
         }
     }
 
@@ -147,6 +148,12 @@ function mapDispatchToProps(dispatch){
         setLogURL: (value) => {
             dispatch({
                 type:"SET_LOG_URL",
+                value:value
+            })
+        },
+        setLogTitle: (value) => {
+            dispatch({
+                type:"SET_LOG_TITLE",
                 value:value
             })
         }

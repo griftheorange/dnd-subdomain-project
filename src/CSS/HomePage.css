@@ -229,3 +229,26 @@ div.divider {
         display:none;
     }
 }
+
+.log_title {
+    height: 120px;
+    width:100%;
+    animation: fadeInFirst ease 2s;
+}
+
+h2 span {
+    font-family: Chancery;
+    font-weight: 100;
+    color: #dfd6cd;
+    font-size:60px;
+    position: absolute;
+    text-shadow: 5px 5px #ffffff12;
+    margin: 0;
+    animation: type 4s steps(60, end); 
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.fade_in_span, .fade_in_p {
+    animation: fadeInFirst ease 2s
+}

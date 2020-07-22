@@ -2,7 +2,8 @@ let initialState = {
     charSheetHidden: true,
     selectedCell:null,
     homeDisplay:null,
-    logURL:null
+    logURL:null,
+    logTitle: null
 }
 
 export default function(state=initialState, action){
@@ -15,8 +16,10 @@ export default function(state=initialState, action){
             return {...state, homeDisplay: action.value}
         case "SET_LOG_URL":
             return {...state, logURL: action.value}
+        case "SET_LOG_TITLE":
+            return {...state, logTitle: action.value}
         case "SET_STATE_TO_HOME":
-            return {...state, homeDisplay:null, logURL:null}
+            return {...state, homeDisplay:null, logURL:null, logTitle:null}
         default:
             return state
     }
