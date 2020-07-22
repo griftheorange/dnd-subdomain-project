@@ -14,5 +14,4 @@ export default {
     'Esmerelda "..." Withring':{
         'relationship':3
     }
-
 }

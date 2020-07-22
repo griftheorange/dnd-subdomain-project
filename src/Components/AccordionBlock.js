@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import npcData from '../Resources/Dictionaries/NPCData'
+import geoData from '../Resources/Dictionaries/GeographyData'
+import logData from '../Resources/Dictionaries/LogData'
 import repEnum from '../Resources/Dictionaries/Reputation'
 
 function AccordionBlock(props) {
@@ -11,6 +13,10 @@ function AccordionBlock(props) {
         win.focus()
     }
 
+    function handleClick(url, event){
+        event.stopPropagation()
+    }
+
     function toggleSelectedCell(clickedCell){
         if (props.selectedCell == clickedCell) {
             props.setSelectedCell(null)
@@ -19,16 +25,24 @@ function AccordionBlock(props) {
         }
     }
 
-    function genNPCs(){
-        return Object.keys(npcData).sort((a, b) => {
-            if(npcData[a]['relationship'] == npcData[b]['relationship']){
+    function genRepLis(data, subkey){
+        return Object.keys(data).sort((a, b) => {
+            if(data[a][subkey] == data[b][subkey]){
                 return a.localeCompare(b)
             } else {
-                return npcData[b]['relationship'] - npcData[a]['relationship']
+                return data[b][subkey] - data[a][subkey]
             }
         }).map((name) => {
             return (
-                <li className={repEnum[npcData[name]['relationship']]}>{name}</li>
+                <li className={repEnum[data[name][subkey]]}>{name}</li>
+            )
+        })
+    }
+
+    function genLogElements(){
+        return Object.keys(logData).map((log) => {
+            return (
+                <p onClick={(e) => {handleClick(logData[log]["text_url"], e)}}>{log}</p>
             )
         })
     }
@@ -42,8 +56,7 @@ function AccordionBlock(props) {
                 <h2>Logs</h2>
                 <div className="divider"></div>
                 <div className="logs_div">
-                    <p>Julius 21st, 2020AD - Prelude</p>
-                    <p>Augustine 2nd, 2020AD - A story to be told...</p>
+                    {genLogElements()}
                 </div>
             </div>
             <div id="encyclopedia" className={props.selectedCell == null ? "cell" : (props.selectedCell == "encyclopedia" ? "cell selected" : "cell unselected")}
@@ -56,15 +69,13 @@ function AccordionBlock(props) {
                     <div className="npc_block">
                         <h3>Friends and Foes</h3>
                         <ul>
-                            {genNPCs()}
+                            {genRepLis(npcData, 'relationship')}
                         </ul>
                     </div>
                     <div className="location_block">
                         <h3>Geographica</h3>
                         <ul>
-                            <li className="very-friendly">Goldenbridge</li>
-                            <li className="neutral">Shattered-Moon Forest</li>
-                            <li className="unfriendly">Stonewood</li>
+                            {genRepLis(geoData, 'friendliness')}
                         </ul>
                     </div>
                 </div>
