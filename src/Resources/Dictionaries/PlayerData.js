@@ -6,6 +6,8 @@ import halfElf from '../../Resources/Pictures/HalfElf.png'
 export default {
     'alex':{
         'char_name':'Thrain Solidfoot',
+        'race':"Dwarf",
+        'class':"Conquest Paladin",
         'url':"https://docs.google.com/spreadsheets/d/1dlk8Hb-dK1Qexx1TBc76pqIcbfSf2HnQCbU_aByW0_k/edit?usp=sharing&amp;single=true&amp;widget=true&amp;headers=false",
         'class_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=77",
         'race_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=15",
@@ -14,6 +16,8 @@ export default {
     },
     'julia':{
         'char_name':'Invidia "Seeker" Withring',
+        'race':"Tiefling",
+        'class':"Draconic Bloodline Sorceress",
         'url':"https://docs.google.com/spreadsheets/d/11d3C94ShvT9PF8N1T5he-9FWvTrHQp9cS4KHGTHYouA/edit?usp=sharing&amp;single=true&amp;widget=true&amp;headers=false",
         'class_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=93",
         'race_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=36",
@@ -22,6 +26,8 @@ export default {
     },
     'kyle':{
         'char_name':'Peat Barkwater',
+        'race':"Half-Elf",
+        'class':"Arcane Trickster Rogue",
         'url':"https://docs.google.com/spreadsheets/d/1NCB1HpasjGYruwBLiwcekSDfXyABpf3GczgtOQ8s3oU/edit?usp=sharing&amp;single=true&amp;widget=true&amp;headers=false",
         'class_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=89",
         'race_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=32",
@@ -30,6 +36,8 @@ export default {
     },
     'grant':{
         'char_name':"Poppy 'B",
+        'race':"Loxodon",
+        'class':"Open Hand Monk",
         'url':"https://docs.google.com/spreadsheets/d/1LKLDOjJrhKGW74B1Htaiq1B7m_M1_0AS9-x00QngYx4/edit?usp=sharing&amp;single=true&amp;widget=true&amp;headers=false",
         'class_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=71",
         'race_url':"https://media.wizards.com/2018/dnd/downloads/UA_RavnicaRaces.pdf",
@@ -38,6 +46,8 @@ export default {
     },
     'charles':{
         'char_name':'Charles',
+        'race':"???",
+        'class':"???",
         'url':"https://docs.google.com/spreadsheets/d/1zkTRQLPF3bbfdcIQCOeIUTmqYRE79fGMVUbokmiaKK0/edit?usp=sharing&amp;single=true&amp;widget=true&amp;headers=false",
         'class_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=93",
         'race_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=36",

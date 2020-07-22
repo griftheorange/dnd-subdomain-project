@@ -38,7 +38,7 @@ function PlayerPage(props) {
             <h2>Tools of the Trade</h2>
             <div className="divider"></div>
             <div className="history">
-                <Heritage classURL={playerData[player_name]['class_url']} raceURL={playerData[player_name]['race_url']}/>
+                <Heritage playerClass={playerData[player_name]['class']} playerRace={playerData[player_name]['race']} classURL={playerData[player_name]['class_url']} raceURL={playerData[player_name]['race_url']}/>
             </div>
             <div className="divider"/>
             <div className="player_die_container">

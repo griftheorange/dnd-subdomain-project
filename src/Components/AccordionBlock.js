@@ -42,7 +42,7 @@ function AccordionBlock(props) {
     function genLogElements(){
         return Object.keys(logData).map((log) => {
             return (
-                <p onClick={(e) => {handleClick(logData[log]["text_url"], e)}}>{log}</p>
+                <p><span onClick={(e) => {handleClick(logData[log]["text_url"], e)}}>{log}</span></p>
             )
         })
     }

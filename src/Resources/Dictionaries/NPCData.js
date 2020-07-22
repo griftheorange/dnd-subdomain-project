@@ -1,3 +1,4 @@
+
 export default {
     'Frank Edinburge':{
         'relationship':5
