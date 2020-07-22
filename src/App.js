@@ -11,6 +11,7 @@ import PlayerPage from './Components/PlayerPage.js'
 import './CSS/App.css'
 
 function App() {
+
   return (
     <Router>
       <Navbar/>

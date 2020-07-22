@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import npcData from '../Resources/Dictionaries/NPCData'
+import repEnum from '../Resources/Dictionaries/Reputation'
 
 function AccordionBlock(props) {
 
@@ -15,6 +17,20 @@ function AccordionBlock(props) {
         } else {
             props.setSelectedCell(clickedCell)
         }
+    }
+
+    function genNPCs(){
+        return Object.keys(npcData).sort((a, b) => {
+            if(npcData[a]['relationship'] == npcData[b]['relationship']){
+                return a.localeCompare(b)
+            } else {
+                return npcData[b]['relationship'] - npcData[a]['relationship']
+            }
+        }).map((name) => {
+            return (
+                <li className={repEnum[npcData[name]['relationship']]}>{name}</li>
+            )
+        })
     }
 
     return (
@@ -40,11 +56,7 @@ function AccordionBlock(props) {
                     <div className="npc_block">
                         <h3>Friends and Foes</h3>
                         <ul>
-                            <li className="very-friendly">Frank Edinburge</li>
-                            <li className="friendly">Drin'kee</li>
-                            <li className="neutral">Dave</li>
-                            <li className="neutral">Dracinian "..." Withring</li>
-                            <li className="neutral">Esmerelda "..." Withring</li>
+                            {genNPCs()}
                         </ul>
                     </div>
                     <div className="location_block">

@@ -4,6 +4,7 @@ import '../CSS/PlayerPage.css'
 import playerData from '../Resources/Dictionaries/PlayerData.js'
 import DiceRoller from '../Components/DiceRoller.js'
 import Heritage from '../Components/Heritage.js'
+import PlayerDescription from '../Components/PlayerDescription.js'
 
 function PlayerPage(props) {
 
@@ -17,7 +18,6 @@ function PlayerPage(props) {
         }
     }
 
-    console.log(playerData)
     return (
     <>
     <div className={props.charSheetHidden ? "iframe_div hidden" : "iframe_div"}>
@@ -31,7 +31,7 @@ function PlayerPage(props) {
                 <img src={playerData[player_name]["picture_url"]}></img>
             </div>
             <div className="content_half">
-                
+                <PlayerDescription textURL={playerData[player_name]["description_url"]}/>
             </div>
         </div>
         <div className={props.charSheetHidden ? "toolkit_container" : "toolkit_container moved"}>

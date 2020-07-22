@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import playerData from '../Resources/Dictionaries/PlayerData'
 
 function Navbar(props) {
     return (
@@ -8,19 +9,19 @@ function Navbar(props) {
             <Link to="/">Home</Link>
         </div>
         <div>
-            <Link to="/player/alex">Thrain Stolidfoot</Link>
+            <Link to="/player/alex">{playerData["alex"]["char_name"]}</Link>
         </div>
         <div>
-            <Link to="/player/julia">Invidia "Seeker" Withring</Link>
+            <Link to="/player/julia">{playerData["julia"]["char_name"]}</Link>
         </div>
         <div>
-            <Link to="/player/kyle">Peat Barkwater</Link>
+            <Link to="/player/kyle">{playerData["kyle"]["char_name"]}</Link>
         </div>
         <div>
-            <Link to="/player/grant">Poppy 'B</Link>
+            <Link to="/player/grant">{playerData["grant"]["char_name"]}</Link>
         </div>
         <div>
-            <Link to="/player/charles">Charles</Link>
+            <Link to="/player/charles">{playerData["charles"]["char_name"]}</Link>
         </div>
     </div>
     );

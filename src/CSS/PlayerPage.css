@@ -151,3 +151,15 @@ iframe {
     width:100%;
     height:auto;
 }
+
+.character_description_block {
+    width:calc(100% - 15px);
+    height:100%;
+    padding-left: 15px;
+    overflow-y: scroll;
+    animation: fadeIn ease 1s;
+}
+
+.character_description_block p {
+    margin-top: 0;
+}
