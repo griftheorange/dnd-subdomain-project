@@ -17,7 +17,7 @@ function Navbar(props) {
             <Link to="/player/kyle">Peat Barkwater</Link>
         </div>
         <div>
-            <Link to="/player/grant">Grant</Link>
+            <Link to="/player/grant">Poppy 'B</Link>
         </div>
         <div>
             <Link to="/player/charles">Charles</Link>

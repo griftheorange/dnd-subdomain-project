@@ -68,6 +68,17 @@ iframe {
     color:#c8c8c8;
     padding: 15px;
     animation: fadeIn  ease 2.5s;
+    display:flex;
+}
+
+.player_page_content div.content_half {
+    width:50%;
+    height:100%;
+    word-wrap: break-word;
+}
+
+.player_page_content .content_half h1 {
+    width:100%;
 }
 
 .player_page_content h1 {
@@ -78,6 +89,7 @@ iframe {
 .toolkit_container {
     width:calc(30% - 85px);
     padding:15px;
+    padding-top:0;
     height:calc(100% - 30px);
     border-right: 1px solid #ffffff40;
     position:absolute;
@@ -121,4 +133,21 @@ iframe {
 .history p {
     margin:0;
     margin-top:10px
+}
+
+.player_description {
+    width:100%;
+    height: calc(100% - 100px);
+    display:flex;
+}
+
+.content_half {
+    margin-top:90px;
+    overflow-y: hidden;
+    border-right: 3px solid #ffffff45;
+}
+
+.content_half img {
+    width:100%;
+    height:auto;
 }

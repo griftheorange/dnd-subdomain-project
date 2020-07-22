@@ -17,6 +17,7 @@ function PlayerPage(props) {
         }
     }
 
+    console.log(playerData)
     return (
     <>
     <div className={props.charSheetHidden ? "iframe_div hidden" : "iframe_div"}>
@@ -25,6 +26,14 @@ function PlayerPage(props) {
     </div>
     <div className="player_page_content">
         <h1>{playerData[player_name]['char_name']}</h1>
+        <div className="player_description">
+            <div className="content_half">
+                <img src={playerData[player_name]["picture_url"]}></img>
+            </div>
+            <div className="content_half">
+                
+            </div>
+        </div>
         <div className={props.charSheetHidden ? "toolkit_container" : "toolkit_container moved"}>
             <h2>Tools of the Trade</h2>
             <div className="divider"></div>

@@ -154,7 +154,7 @@ div.cell div {
 }
 
 div.cell.selected {
-    height:100%;
+    height:calc(100% - 90px);
     overflow-y: scroll;
 }
 
