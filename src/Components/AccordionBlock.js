@@ -15,6 +15,10 @@ function AccordionBlock(props) {
 
     function handleClick(url, event){
         event.stopPropagation()
+        if(url){
+            props.setLogURL(url)
+            props.setHomeDisplay("log")
+        }
     }
 
     function toggleSelectedCell(clickedCell){
@@ -40,7 +44,9 @@ function AccordionBlock(props) {
     }
 
     function genLogElements(){
-        return Object.keys(logData).map((log) => {
+        return Object.keys(logData).sort((a, b) => {
+            return logData[a]['id'] - logData[b]['id']
+        }).map((log) => {
             return (
                 <p><span onClick={(e) => {handleClick(logData[log]["text_url"], e)}}>{log}</span></p>
             )
@@ -129,6 +135,18 @@ function mapDispatchToProps(dispatch){
         setSelectedCell: (value) => {
             dispatch({
                 type:"SET_SELECTED_CELL",
+                value:value
+            })
+        },
+        setHomeDisplay: (value) => {
+            dispatch({
+                type:"SET_HOME_DISPLAY",
+                value:value
+            })
+        },
+        setLogURL: (value) => {
+            dispatch({
+                type:"SET_LOG_URL",
                 value:value
             })
         }

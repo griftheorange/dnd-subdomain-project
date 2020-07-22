@@ -1,12 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import playerData from '../Resources/Dictionaries/PlayerData'
+import {connect} from 'react-redux'
 
 function Navbar(props) {
     return (
     <div className="navbar">
         <div>
-            <Link to="/">Home</Link>
+            <Link onClick={props.setStateToHome}to="/">Home</Link>
         </div>
         <div>
             <Link to="/player/alex">{playerData["alex"]["char_name"]}</Link>
@@ -27,4 +28,18 @@ function Navbar(props) {
     );
 }
 
-export default Navbar;
+function mapStateToProps(state){
+    return {}
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        setStateToHome: () => {
+            dispatch({
+                type:"SET_STATE_TO_HOME"
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
