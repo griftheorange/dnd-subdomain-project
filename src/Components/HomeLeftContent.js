@@ -5,27 +5,74 @@ import {connect} from 'react-redux'
 function HomeLeftContent(props) {
 
     function genLog(){
-        fetch(props.logURL)
+        fetch(props.homeURL)
         .then((r) => {return r.text()})
         .then((html) => {
             var el = document.createElement( 'html' )
             el.innerHTML = html
             let body = el.getElementsByTagName("body")
             body = Array.apply(null, body[0].childNodes).map((tag) => {
-                return (
-                    <p className="fade_in_p">
-                        {tag.innerText}
-                    </p>
-                )
+                if(tag.firstElementChild.firstElementChild){
+                    return (
+                        <div>
+                            <img src={tag.firstElementChild.firstElementChild.src}></img>
+                        </div>
+                    )
+                } else {
+                    return (
+                        <p className="fade_in_p">
+                            {tag.innerText}
+                        </p>
+                    )
+                }
             })
-            body.unshift(
-                <div className="log_title">
-                    <h2><span className="fade_in_span">{props.logTitle}</span></h2>
-                </div>
-            )
             setContent(
                 <div className="home_left_block">
-                    {body}
+                    <div className="log_title">
+                        <h2 className="fade_in_span">{props.homeTitle}</h2>
+                    </div>
+                    <div className="log_content">
+                        {body}
+                    </div>
+                </div>
+            )
+        })
+    }
+
+    function genNPC(){
+        fetch(props.homeURL)
+        .then((r) => {return r.text()})
+        .then((html) => {
+            var el = document.createElement( 'html' )
+            el.innerHTML = html
+            let body = el.getElementsByTagName("body")
+            let image
+            body = Array.apply(null, body[0].childNodes).map((tag) => {
+                if(tag.firstElementChild.firstElementChild){
+                    image = (
+                        <img src={tag.firstElementChild.firstElementChild.src}></img>
+                    )
+                } else {
+                    return (
+                        <p className="text_styler">
+                            {tag.innerText}
+                        </p>
+                    )
+                }
+            })
+            setContent(
+                <div className="home_left_block">
+                    <div className="log_title">
+                        <h2 className="text_styler">{props.homeTitle}</h2>
+                    </div>
+                    <div className="npc_content">
+                        <div className="npc_pic_box">
+                            {image}
+                        </div>
+                        <div className="npc_text">
+                            {body}
+                        </div>
+                    </div>
                 </div>
             )
         })
@@ -51,11 +98,18 @@ function HomeLeftContent(props) {
     useEffect(() => {
         switch(props.homeDisplay){
             case 'log':
-                setContent(genLog())
+                genLog()
+                break;
+            case 'npc':
+                genNPC()
+                break;
+            case 'area':
+                genLog()
+                break;
             default:
                 setContent(genWelcome());
         }
-    }, [props.homeDisplay, props.logURL])
+    }, [props.homeDisplay, props.homeURL])
 
     return content
 }
@@ -63,8 +117,8 @@ function HomeLeftContent(props) {
 function mapStateToProps(state){
     return {
         homeDisplay:state.homeDisplay,
-        logURL:state.logURL,
-        logTitle:state.logTitle
+        homeURL:state.homeURL,
+        homeTitle:state.homeTitle
     }
 }
 

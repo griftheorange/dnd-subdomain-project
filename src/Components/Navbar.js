@@ -36,7 +36,7 @@ function mapDispatchToProps(dispatch){
     return {
         setStateToHome: () => {
             dispatch({
-                type:"SET_STATE_TO_HOME"
+                type:"SET_HOME"
             })
         }
     }

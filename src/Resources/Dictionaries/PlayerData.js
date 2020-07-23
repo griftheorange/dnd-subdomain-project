@@ -47,9 +47,9 @@ export default {
     'charles':{
         'char_name':'Charles',
         'race':"???",
-        'class':"???",
+        'class':"Culinaromancer",
         'url':"https://docs.google.com/spreadsheets/d/1zkTRQLPF3bbfdcIQCOeIUTmqYRE79fGMVUbokmiaKK0/edit?usp=sharing&amp;single=true&amp;widget=true&amp;headers=false",
-        'class_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=93",
+        'class_url':"https://www.dandwiki.com/wiki/Alchemist_(5e_Class)",
         'race_url':"https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=36",
         'picture_url':loxodon,
         'description_url':"https://docs.google.com/document/d/e/2PACX-1vTaER3-ehOXIu-aD3u7e1yoYya6qIqdPVuifCCnlGmD3mhI99TQpKm2H7Zw0opyjwWbdyTZOmStYhq6/pub?embedded=true"

@@ -13,12 +13,26 @@ function AccordionBlock(props) {
         win.focus()
     }
 
-    function handleClick(url, event){
+    function handleClick(url, event, type){
         event.stopPropagation()
-        if(url){
-            props.setLogURL(url)
-            props.setHomeDisplay("log")
-            props.setLogTitle(event.target.innerText)
+        switch(type){
+            case 'log':
+                if(url){
+                    props.setLog(url, event.target.innerText)
+                }
+                break
+            case 'npc':
+                if(url){
+                    props.setNPC(url, event.target.innerText)
+                }
+                break
+            case 'area':
+                if(url){
+                    props.setArea(url, event.target.innerText)
+                }
+                break
+            default:
+                break
         }
     }
 
@@ -30,7 +44,8 @@ function AccordionBlock(props) {
         }
     }
 
-    function genRepLis(data, subkey){
+    function genRepLis(data, type){
+        let subkey = type == 'npc' ? 'relationship' : 'friendliness'
         return Object.keys(data).sort((a, b) => {
             if(data[a][subkey] == data[b][subkey]){
                 return a.localeCompare(b)
@@ -38,9 +53,15 @@ function AccordionBlock(props) {
                 return data[b][subkey] - data[a][subkey]
             }
         }).map((name) => {
-            return (
-                <li className={repEnum[data[name][subkey]]}>{name}</li>
-            )
+            if(type == "npc"){
+                return (
+                    <li className={repEnum[data[name][subkey]]}><span onClick={(e) => {handleClick(npcData[name]["text_url"], e, type)}}>{name}</span></li>
+                )
+            } else {
+                return (
+                    <li className={repEnum[data[name][subkey]]}><span onClick={(e) => {handleClick(geoData[name]["text_url"], e, type)}}>{name}</span></li>
+                )
+            }
         })
     }
 
@@ -49,7 +70,7 @@ function AccordionBlock(props) {
             return logData[a]['id'] - logData[b]['id']
         }).map((log) => {
             return (
-                <p><span onClick={(e) => {handleClick(logData[log]["text_url"], e)}}>{log}</span></p>
+                <p><span onClick={(e) => {handleClick(logData[log]["text_url"], e, "log")}}>{log}</span></p>
             )
         })
     }
@@ -76,13 +97,13 @@ function AccordionBlock(props) {
                     <div className="npc_block">
                         <h3>Friends and Foes</h3>
                         <ul>
-                            {genRepLis(npcData, 'relationship')}
+                            {genRepLis(npcData, 'npc')}
                         </ul>
                     </div>
                     <div className="location_block">
                         <h3>Geographica</h3>
                         <ul>
-                            {genRepLis(geoData, 'friendliness')}
+                            {genRepLis(geoData, 'area')}
                         </ul>
                     </div>
                 </div>
@@ -105,7 +126,7 @@ function AccordionBlock(props) {
                 <div className="divider"></div>
                 <div className="resources_div">
                     <p><span onClick={(e) => {handleLink("https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=1", e)}}>Heroes' Lexicon</span></p>
-                    <p><span onClick={(e) => {handleLink("https://www.wizards.com/dnd/dice/dice.htm", e)}}>Cast the Die</span></p>
+                    <p><span onClick={(e) => {handleLink("https://www.wizards.com/dnd/dice/dice.htm", e, "resource")}}>Cast the Die</span></p>
                     <p><span onClick={(e) => {handleLink("https://i.pinimg.com/originals/ae/da/e0/aedae0f7809fb92bcbe9829ff7ddeebc.png", e)}}>Norman's Guide to Combat</span></p>
                     <p><span onClick={(e) => {handleLink("https://dnd5e.info/equipment/expenses/", e)}}>Frugal Living for the Cost-Conscious Adventurer</span></p>
                     <p><span onClick={(e) => {handleLink("https://dungeonmastertools.github.io/treasure.html", e)}}>Scrolls of Copius Datum</span></p>
@@ -139,22 +160,25 @@ function mapDispatchToProps(dispatch){
                 value:value
             })
         },
-        setHomeDisplay: (value) => {
+        setLog: (url, title) => {
             dispatch({
-                type:"SET_HOME_DISPLAY",
-                value:value
+                type:"SET_LOG",
+                url:url,
+                title:title
             })
         },
-        setLogURL: (value) => {
+        setNPC: (url, title) => {
             dispatch({
-                type:"SET_LOG_URL",
-                value:value
+                type:"SET_NPC",
+                url:url,
+                title:title
             })
         },
-        setLogTitle: (value) => {
+        setArea: (url, title) => {
             dispatch({
-                type:"SET_LOG_TITLE",
-                value:value
+                type:"SET_AREA",
+                url:url,
+                title:title
             })
         }
     }

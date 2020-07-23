@@ -81,6 +81,7 @@ li.hostile {
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 }
 
 h1 {
@@ -236,19 +237,70 @@ div.divider {
     animation: fadeInFirst ease 2s;
 }
 
-h2 span {
+h2.fade_in_span {
     font-family: Chancery;
     font-weight: 100;
     color: #dfd6cd;
     font-size:60px;
-    position: absolute;
     text-shadow: 5px 5px #ffffff12;
-    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     animation: type 4s steps(60, end); 
     white-space: nowrap;
     overflow: hidden;
 }
 
+h2.text_styler {
+    font-family: Chancery;
+    font-weight: 100;
+    color: #dfd6cd;
+    font-size:60px;
+    text-shadow: 5px 5px #ffffff12;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    animation: type 4s steps(60, end); 
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.text_styler{
+    margin-bottom:0;
+    font-family: Chancery;
+}
+
 .fade_in_span, .fade_in_p {
-    animation: fadeInFirst ease 2s
+    animation: fadeInFirst ease 2s;
+    font-family: Chancery;
+}
+
+.log_content img {
+    width:100%;
+    height:auto;
+    animation: fadeInFirst ease 2s;
+}
+
+.npc_content {
+    display:flex;
+    height: calc(100% - 120px)
+}
+
+.npc_content div {
+    width:50%;
+    height:90%;
+    animation: fadeInFirst ease 2s;
+}
+
+.npc_content .npc_text {
+    overflow-y: scroll;
+    padding-left:15px
+}
+
+.npc_content .npc_text p {
+    margin:0;
+    margin-bottom:15px;
+}
+
+.npc_content div img {
+    width:100%;
+    height:auto;
 }
