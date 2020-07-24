@@ -162,4 +162,5 @@ iframe {
 
 .character_description_block p {
     margin-top: 0;
+    animation: fadeIn ease 1s;
 }

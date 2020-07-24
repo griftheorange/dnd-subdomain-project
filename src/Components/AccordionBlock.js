@@ -57,10 +57,12 @@ function AccordionBlock(props) {
                 return (
                     <li className={repEnum[data[name][subkey]]}><span onClick={(e) => {handleClick(npcData[name]["text_url"], e, type)}}>{name}</span></li>
                 )
-            } else {
+            } else if(type == "area"){
                 return (
                     <li className={repEnum[data[name][subkey]]}><span onClick={(e) => {handleClick(geoData[name]["text_url"], e, type)}}>{name}</span></li>
                 )
+            } else {
+                return null
             }
         })
     }
