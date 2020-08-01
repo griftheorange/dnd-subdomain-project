@@ -1,9 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import playerData from '../Resources/Dictionaries/PlayerData'
 import {connect} from 'react-redux'
 
 function Navbar(props) {
+
+    let playerData = props.appData["PlayerData"]
+
     return (
     <div className="navbar">
         <div>
@@ -29,7 +31,9 @@ function Navbar(props) {
 }
 
 function mapStateToProps(state){
-    return {}
+    return {
+        appData: state.appData
+    }
 }
 
 function mapDispatchToProps(dispatch){

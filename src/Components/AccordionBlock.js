@@ -1,11 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import npcData from '../Resources/Dictionaries/NPCData'
-import geoData from '../Resources/Dictionaries/GeographyData'
-import logData from '../Resources/Dictionaries/LogData'
-import repEnum from '../Resources/Dictionaries/Reputation'
 
 function AccordionBlock(props) {
+
+    let geoData = props.appData["GeographyData"]
+    let logData = props.appData["LogData"]
+    let npcData = props.appData["NPCData"]
+    let repEnum = props.appData["Reputation"]
 
     function handleLink(url, event){
         event.stopPropagation()
@@ -150,7 +151,8 @@ function AccordionBlock(props) {
 
 function mapStateToProps(state){
     return {
-        selectedCell: state.selectedCell
+        selectedCell: state.selectedCell,
+        appData: state.appData
     }
 }
 

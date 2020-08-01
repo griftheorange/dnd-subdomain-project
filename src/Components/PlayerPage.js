@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import '../CSS/PlayerPage.css'
-import playerData from '../Resources/Dictionaries/PlayerData.js'
 import DiceRoller from '../Components/DiceRoller.js'
 import Heritage from '../Components/Heritage.js'
 import PlayerDescription from '../Components/PlayerDescription.js'
 
 function PlayerPage(props) {
 
+
+    let playerData = props.appData["PlayerData"]
     let player_name = props.match.params.player_name
 
     function toggleCharSheetHidden(){
@@ -28,7 +29,7 @@ function PlayerPage(props) {
         <h1>{playerData[player_name]['char_name']}</h1>
         <div className="player_description">
             <div className="content_half">
-                <img src={playerData[player_name]["picture_url"]}></img>
+                <img src={props.playerDescPicture}></img>
             </div>
             <div className="content_half">
                 <PlayerDescription textURL={playerData[player_name]["description_url"]}/>
@@ -52,7 +53,9 @@ function PlayerPage(props) {
 
 function mapStateToProps(state){
     return {
-        charSheetHidden:state.charSheetHidden
+        charSheetHidden:state.charSheetHidden,
+        appData: state.appData,
+        playerDescPicture: state.playerDescPicture
     }
 }
 

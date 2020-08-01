@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {connect} from 'react-redux'
 
 function PlayerDescription(props) {
 
@@ -25,11 +26,17 @@ function PlayerDescription(props) {
             el.innerHTML = html
             let body = el.getElementsByTagName("body")
             body = Array.apply(null, body[0].childNodes).map((tag) => {
-                return (
-                    <p>
-                        {tag.innerText}
-                    </p>
-                )
+                if(tag.childNodes[0].childNodes.length > 0){
+                    if(tag.childNodes[0].childNodes[0].tagName){
+                        props.setPlayerDescPicture(tag.childNodes[0].childNodes[0].src)
+                    } else {
+                        return (
+                            <p>
+                                {tag.childNodes[0].innerText}
+                            </p>
+                        )
+                    }
+                }
             })
             setDescriptionElements(body)
         })
@@ -38,4 +45,19 @@ function PlayerDescription(props) {
     return getDescriptionBlock()
 }
 
-export default PlayerDescription;
+function mapState(state){
+    return {}
+}
+
+function mapDispatch(dispatch){
+    return {
+        setPlayerDescPicture:(value)=>{
+            dispatch({
+                type:"SET_PLAYER_DESC_PICTURE",
+                value:value
+            })
+        }
+    }
+}
+
+export default connect(mapState, mapDispatch)(PlayerDescription);
