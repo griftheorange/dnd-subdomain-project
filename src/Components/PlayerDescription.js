@@ -32,7 +32,9 @@ function PlayerDescription(props) {
                     } else {
                         return (
                             <p>
-                                {tag.childNodes[0].innerText}
+                                {Array.from(tag.childNodes).map((node) => {
+                                    return node.innerText
+                                }).join("")}
                             </p>
                         )
                     }

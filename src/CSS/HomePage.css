@@ -204,6 +204,15 @@ div.divider {
     padding-left: 15px;
 }
 
+.bestiary_div ul {
+    padding-left: 20px;
+}
+
+.bestiary_div ul li {
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
 .encyclopedia_div div ul li {
     font-size: 1.2em;
     margin-bottom: 5px;
@@ -232,20 +241,18 @@ div.divider {
 }
 
 .log_title {
-    height: 120px;
     width:100%;
     animation: fadeInFirst ease 2s;
 }
 
-h2.fade_in_span {
+p.fade_in_span {
     font-family: Chancery;
     font-weight: 100;
     color: #dfd6cd;
-    font-size:60px;
+    font-size:50px;
     text-shadow: 5px 5px #ffffff12;
     margin-top: 10px;
     margin-bottom: 10px;
-    animation: type 4s steps(60, end); 
     white-space: nowrap;
     overflow: hidden;
 }
@@ -286,7 +293,7 @@ h2.text_styler {
 
 .npc_content div {
     width:50%;
-    height:90%;
+    height:100%;
     animation: fadeInFirst ease 2s;
 }
 

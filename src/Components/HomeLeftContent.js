@@ -29,7 +29,7 @@ function HomeLeftContent(props) {
             setContent(
                 <div className="home_left_block">
                     <div className="log_title">
-                        <h2 className="fade_in_span">{props.homeTitle}</h2>
+                       <p className="fade_in_span">{props.homeTitle}</p>
                     </div>
                     <div className="log_content">
                         {body}

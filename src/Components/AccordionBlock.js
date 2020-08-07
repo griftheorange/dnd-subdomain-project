@@ -7,6 +7,7 @@ function AccordionBlock(props) {
     let logData = props.appData["LogData"]
     let npcData = props.appData["NPCData"]
     let repEnum = props.appData["Reputation"]
+    let beastData = props.appData["Bestiary"]
 
     function handleLink(url, event){
         event.stopPropagation()
@@ -32,6 +33,10 @@ function AccordionBlock(props) {
                     props.setArea(url, event.target.innerText)
                 }
                 break
+            case 'beast':
+                if(url){
+                    props.setNPC(url, event.target.innerText)
+                }
             default:
                 break
         }
@@ -48,11 +53,12 @@ function AccordionBlock(props) {
     function genRepLis(data, type){
         let subkey = type == 'npc' ? 'relationship' : 'friendliness'
         return Object.keys(data).sort((a, b) => {
-            if(data[a][subkey] == data[b][subkey]){
-                return a.localeCompare(b)
-            } else {
-                return data[b][subkey] - data[a][subkey]
-            }
+            // if(data[a][subkey] == data[b][subkey]){
+            //     return a.localeCompare(b)
+            // } else {
+            //     return data[b][subkey] - data[a][subkey]
+            // }
+            return a.localeCompare(b)
         }).map((name) => {
             if(type == "npc"){
                 return (
@@ -68,6 +74,21 @@ function AccordionBlock(props) {
         })
     }
 
+    function genBeastLis(){
+        return Object.keys(beastData).sort((a, b) => {
+            // if(beastData[a]["danger"] == beastData[b]["danger"]){
+            //     return a.localeCompare(b)
+            // } else {
+            //     return beastData[b]["danger"] - beastData[a]["danger"]
+            // }
+            return a.localeCompare(b)
+        }).map((beast) => {
+            return (
+                <li className={repEnum[beastData[beast]["danger"]]}><span onClick={(e) => handleClick(beastData[beast]["text_url"], e, "beast")}>{beast}</span></li>
+            )
+        })
+    }
+
     function genLogElements(){
         return Object.keys(logData).sort((a, b) => {
             return logData[a]['id'] - logData[b]['id']
@@ -76,6 +97,16 @@ function AccordionBlock(props) {
                 <p><span onClick={(e) => {handleClick(logData[log]["text_url"], e, "log")}}>{log}</span></p>
             )
         })
+    }
+
+    function genResources(){
+        return (
+            <>
+            {Object.entries(props.appData["Resources"]).map((resource) => {
+                return(<p><span onClick={(e) => {handleLink(resource[1], e)}}>{resource[0]}</span></p>)
+            })}
+            </>
+        )
     }
 
     return (
@@ -118,7 +149,9 @@ function AccordionBlock(props) {
                 <h2>Bestiary</h2>
                 <div className="divider"></div>
                 <div className="bestiary_div">
-                    <p>Its a Dangerous World...</p>
+                    <ul>
+                        {genBeastLis()}
+                    </ul>
                 </div>
             </div>
             <div id="resources" className={props.selectedCell == null ? "cell" : (props.selectedCell == "resources" ? "cell selected" : "cell unselected")}
@@ -128,11 +161,7 @@ function AccordionBlock(props) {
                 <h2>Resources</h2>
                 <div className="divider"></div>
                 <div className="resources_div">
-                    <p><span onClick={(e) => {handleLink("https://online.anyflip.com/ofsj/cxmj/mobile/index.html#p=1", e)}}>Heroes' Lexicon</span></p>
-                    <p><span onClick={(e) => {handleLink("https://www.wizards.com/dnd/dice/dice.htm", e, "resource")}}>Cast the Die</span></p>
-                    <p><span onClick={(e) => {handleLink("https://i.pinimg.com/originals/ae/da/e0/aedae0f7809fb92bcbe9829ff7ddeebc.png", e)}}>Norman's Guide to Combat</span></p>
-                    <p><span onClick={(e) => {handleLink("https://dnd5e.info/equipment/expenses/", e)}}>Frugal Living for the Cost-Conscious Adventurer</span></p>
-                    <p><span onClick={(e) => {handleLink("https://dungeonmastertools.github.io/treasure.html", e)}}>Scrolls of Copius Datum</span></p>
+                    {genResources()}
                 </div>
             </div>
             <div id="schedule" className={props.selectedCell == null ? "cell" : (props.selectedCell == "schedule" ? "cell selected" : "cell unselected")}
